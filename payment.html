@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Getway</title>
+    <style>
+        *{ margin: 0; box-sizing: border-box;}
+        legend{text-align: center;}
+        .container{ max-width: 500px; margin: auto;background: lightblue;padding: 0 15px;height: 300px;}
+        body{ font-family: sans-serif; padding: 0 10px;}
+        .pymt{ margin: 10px 0;}
+        
+        .pay{border: 1px solid blue;display: inline-block;margin-left: 200px;}
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Payment Details</h1>
+                <fieldset>
+                    <legend>Payment Details </legend>
+                    <form action="" name="Payment">
+                        <div class="pymt"><label>Card Holder Name: <input type="text" name="name"></label> <span></span> </div>
+                        <div class="pymt"><label>Card Number*: <input type="text" name="card no"></label> <span></span> </div>
+                        
+                        <div class="pymt"><label>Card Validity*: <input type="text" name="validity"></label> <span></span> </div>
+                        <div class="pymt"><label>CVV*: <input type="password" name="password"></label> <span></span> </div>
+                        <div class="pay"><button>PAY </button>
+                    </form>
+                </fieldset>
+        </div>
+    </div>
+
+
+        <script>
+            document.Payment.addEventListener(".pay",function(e){
+                let name=this.name;
+                let cardNo=this.cardNo;
+                let validity=this.validity;
+                let password=this.password;
+
+                name.nextElementSibling.innerHTML="";
+                cardNo.nextElementSibling.innerHTML="";
+
+                if(name.value.trim()==""){
+                    e.preventDefault();
+                    name.nextElementSibling.innerHTML="Enter Name";
+                    name.nextElementSibling.style.color="#f02";
+                    name.focus();
+                }
+
+
+                
+            })
+        </script>
+</body>
+</html>
